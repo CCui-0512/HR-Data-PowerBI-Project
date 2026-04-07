@@ -22,16 +22,15 @@ Organize two raw HR datasets in Power Query by structuring them into a **Fact Ta
 - Create a new group and only reference the source data  
 
 - Under the referenced tables:  
-  - Identify and build the **Fact Table**  
-  - Create separate **Dimension Tables**  
-  - Clean duplicates and blanks
+  - Identify and build the **Fact Table**
+  - Create separate **Dimension Tables**, removing duplicates and blank values
     
-![Cleaned Data Model](./Showcase%20image/Cleaned%20data%20model.png)
-
-- Merge the **Fact Table** with **Dimension Tables**  
+- Merge the **Fact Table** with **Dimension Tables**   
   - Remove redundant descriptive columns from the fact table
   - Retain only keys to reduce data size and improve performance
    
 ![Star Schema Model](./Showcase%20image/Star%20schema%20model.png)
 
 ---
+
+## 2.Calculating measures with Dax
