@@ -11,13 +11,27 @@ Datasets are xxxxx
 
 ---
 
-## Data Modeling
-The data model follows a **classic star schema**.  
-You can explore the model in the **Model view** inside Power BI.  
+## 1.Data Modeling
+  
+### Objective
+Organize two raw HR datasets in Power Query by structuring them into a **Fact Table** and **Dimension Tables**, reducing the size of the fact table and building a **star schema**.
 
-**Key Points:**
-- Fact table: `EmployeeFact`
-- Dimension tables: `Department`, `JobRole`, `Time`
-- Measures: Headcount, Employee Retention, Turnover
+### Specifications
+
+- Mark the two original datasets as Source and disable load  
+- Create a new group and only reference the source data  
+
+- Under the referenced tables:  
+  - Identify and build the **Fact Table**  
+  - Create separate **Dimension Tables**  
+  - Clean duplicates and blanks
+    
+![Cleaned Data Model](./Showcase%20image/Cleaned%20data%20model.png)
+
+- Merge the **Fact Table** with **Dimension Tables**  
+  - Remove redundant descriptive columns from the fact table
+  - Retain only keys to reduce data size and improve performance
+   
+![Star Schema Model](./Showcase%20image/Star%20schema%20model.png)
 
 ---
