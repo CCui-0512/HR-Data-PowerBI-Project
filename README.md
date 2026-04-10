@@ -18,9 +18,7 @@ Organize two raw HR datasets in Power Query by structuring them into a **Fact Ta
 
 ### Specifications
 
-- Mark the two original datasets as Source and disable load  
 - Create a new group and only reference the source data  
-
 - Under the referenced tables:  
   - Identify and build the **Fact Table**
   - Create separate **Dimension Tables**, removing duplicates and blank values
@@ -34,3 +32,25 @@ Organize two raw HR datasets in Power Query by structuring them into a **Fact Ta
 ---
 
 ## 2.Calculating measures with Dax
+
+### Objective
+Calculate key HR metrics (Headcount, Retention Rate, Turnover Rate) over time.
+
+Avoid ambiguity caused by linking the Date table to both `hire_date` and `term_date`,  
+by not creating relationships and instead referencing the Date table directly in DAX.
+
+### Specifications
+
+- **Headcount**  
+  = employees hired before or on the selected date  
+  AND (not exited OR exited after the selected date)
+
+- **Retention Rate**  
+  = number of employees remaining during the period  
+  / number of employees at the start of the period  
+
+- **Turnover Rate**  
+  = number of employees who left during the period  
+  / ((start headcount + end headcount) / 2)
+
+---
