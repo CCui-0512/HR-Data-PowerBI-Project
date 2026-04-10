@@ -45,6 +45,12 @@ by not creating relationships and instead referencing the Date table directly in
   = employees hired before or on the selected date  
   AND (not exited OR exited after the selected date)
 
+```
+Headcount = CALCULATE(
+    [All employees],
+    FILTER(people_fact,people_fact[hire_date] <= LASTDATE('Date'[Date]) &&
+        (people_fact[term_date] > LASTDATE('Date'[Date]) ||ISBLANK(people_fact[term_date]))))
+```
 - **Retention Rate**  
   = number of employees remaining during the period  
   / number of employees at the start of the period  
