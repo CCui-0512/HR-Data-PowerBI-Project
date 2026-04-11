@@ -2,12 +2,22 @@
 <br>
 This is an HR data 👥 Power BI project that showcases the end-to-end creation of a headcount report. 
 <br>
-It includes data modeling with a star schema in Power Query, DAX measures for headcount, retention, and turnover, interactive features like a slicer panel, and a custom-designed report layout.
+It includes data modeling with a star schema in Power Query, DAX measures for headcount, interactive features like a slicer panel, and a custom-designed report layout.
 
 ---
 
-## Datasets
-Datasets are xxxxx
+## Final Report
+![Final Report](./Showcase%20image/Final%20Report.png)
+
+---
+
+## Dataset
+
+The dataset is synthetically generated and consists of two tables, 
+
+each containing 4,138 records, covering employee demographics and employment status.
+
+`/Datasets/people_data.csv` `/Datasets/people_employment_history.csv`
 
 ---
 
@@ -18,14 +28,9 @@ Organize two raw HR datasets in Power Query by structuring them into a **Fact Ta
 
 ### Specifications
 
-- Create a new group and only reference the source data  
-- Under the referenced tables:  
-  - Identify and build the **Fact Table**
-  - Create separate **Dimension Tables**, removing duplicates and blank values
-    
-- Merge the **Fact Table** with **Dimension Tables**   
-  - Remove redundant descriptive columns from the fact table
-  - Retain only keys to reduce data size and improve performance
+- Identify and build the **fact table** using `employee ID`,`name`,`hire date`,`termination date`, and `active status`.  
+- Create **dimension tables** by separating`demographics`,`education`,`department`,`location`,`job level`, and `manager`, while removing duplicates and blank values.  
+- Join the fact and dimension tables, removing redundant columns and retaining only keys to reduce the size of the fact table.
    
 ![Star Schema Model](./Showcase%20image/Star%20schema%20model.png)
 
@@ -34,7 +39,7 @@ Organize two raw HR datasets in Power Query by structuring them into a **Fact Ta
 ## 2.Calculating measures with Dax
 
 ### Objective
-Calculate key HR metrics (Headcount, Retention Rate, Turnover Rate) over time.
+Calculate key HR metrics Headcount over time.
 
 Avoid ambiguity caused by linking the Date table to both `hire_date` and `term_date`,  
 by not creating relationships and instead referencing the Date table directly in DAX.
@@ -51,12 +56,17 @@ Headcount = CALCULATE(
     FILTER(people_fact,people_fact[hire_date] <= LASTDATE('Date'[Date]) &&
         (people_fact[term_date] > LASTDATE('Date'[Date]) ||ISBLANK(people_fact[term_date]))))
 ```
-- **Retention Rate**  
-  = number of employees remaining during the period  
-  / number of employees at the start of the period  
 
-- **Turnover Rate**  
-  = number of employees who left during the period  
-  / ((start headcount + end headcount) / 2)
+---
+
+## 3. Visualizing the Dashboard
+
+### Objective
+Visualize a headcount dashboard comparing key metrics with all possible dimensions within a selected timeframe.
+
+### Specifications
+- Build a customized background in PowerPoint and upload to PowerBI.  
+- Design the layout step by step by drawing containers and filling them with visuals.  
+- Choose an appropriate color scheme and the right visuals.
 
 ---
