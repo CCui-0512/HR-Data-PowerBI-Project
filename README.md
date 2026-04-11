@@ -1,4 +1,4 @@
-# HR-Data-PowerBI-Project📊
+# HR-Data-PowerBI-Project📊👥
 <br>
 This is an HR data 👥 Power BI project that showcases the end-to-end creation of a headcount report. 
 <br>
