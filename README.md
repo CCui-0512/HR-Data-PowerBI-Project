@@ -69,4 +69,4 @@ Visualize a headcount dashboard comparing key metrics with all possible dimensio
 - Design the layout step by step by drawing containers and filling them with visuals.  
 - Choose an appropriate color scheme and the right visuals.
 
----
+
